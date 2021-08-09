@@ -1,0 +1,29 @@
+Total SubArray (synaptic core) area=5.0841e-09 m^2
+Total Neuron (neuron peripheries) area=1.2082e-09 m^2
+Total area=6.2923e-09 m^2
+Leakage power of subArrayIH is : 7.1391e-05 W
+Leakage power of subArrayHO is : 1.6238e-05 W
+Leakage power of NeuronIH is : 1.5533e-05 W
+Leakage power of NeuronHO is : 2.4850e-06 W
+Total leakage power of subArray is : 8.7629e-05 W
+Total leakage power of Neuron is : 1.8018e-05 W
+Accuracy at 1 epochs is : 49.17%
+	Read latency=3.2472e-02 s
+	Write latency=1.6281e+02 s
+	Read energy=3.3552e-06 J
+	Write energy=6.0846e-05 J
+Accuracy at 2 epochs is : 48.05%
+	Read latency=6.4944e-02 s
+	Write latency=3.5771e+02 s
+	Read energy=6.7105e-06 J
+	Write energy=1.3816e-04 J
+Accuracy at 3 epochs is : 62.46%
+	Read latency=9.7416e-02 s
+	Write latency=5.8037e+02 s
+	Read energy=1.0065e-05 J
+	Write energy=2.2801e-04 J
+Accuracy at 4 epochs is : 64.85%
+	Read latency=1.2989e-01 s
+	Write latency=8.2657e+02 s
+	Read energy=1.3421e-05 J
+	Write energy=3.2878e-04 J
