@@ -468,11 +468,11 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
                             gradt = s1[jj] * Input[i][k];
                             gradSum1[jj][k] += gradt; // sum over the gradient over all the training samples in this batch
                             if (optimization_type == "SGD"){
-                                deltaWeight1[jj][k] = SGD(gradt, param->alpha1, param->decayrate, weight1);                        
+                                deltaWeight1[jj][k] = SGD(gradt, param->alpha1, param->decayrate, weight1[jj][k]);                        
                              }   
                             else if(optimization_type=="Momentum")
                             {
-                                deltaWeight1[jj][k] = SGD(gradt, param->alpha1, param->decayrate, weight1); // only add momentum once every batch                       
+                                deltaWeight1[jj][k] = SGD(gradt, param->alpha1, param->decayrate, weight1[jj][k]); // only add momentum once every batch                       
                                 if (batchSize % numTrain == 0)
                                 {
                                     deltaWeight1[jj][k] = Momentum(gradt, param->alpha1,momentumPrev1[jj][k]);
@@ -768,10 +768,10 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
                             gradt = s2[jj] * a1[k];
                             gradSum2[jj][k] += gradt; // sum over the gradient over all the training samples in this batch
                          if (optimization_type == "SGD") 
-                            deltaWeight2[jj][k] = SGD(gradt, param->alpha2, param->decayrate, weight2);                        
+                            deltaWeight2[jj][k] = SGD(gradt, param->alpha2, param->decayrate, weight2[jj][k]);                        
                             else if(optimization_type=="Momentum")
                                     {
-                                        deltaWeight2[jj][k] = SGD(gradt, param->alpha2, param->decayrate, weight2);                        
+                                        deltaWeight2[jj][k] = SGD(gradt, param->alpha2, param->decayrate, weight2[jj][k]);                        
                                         if (batchSize % numTrain == 0){                                            
                                             deltaWeight2[jj][k] = Momentum(gradt, param->alpha2,momentumPrev2[jj][k]);
                                             momentumPrev2[jj][k] = GAMA*momentumPrev2[jj][k]+param->alpha2*gradSum2[jj][k];
