@@ -130,17 +130,13 @@ int main() {
 	ofstream mywriteoutfile;
 	mywriteoutfile.open("my_log.csv");                                                                                                            
 	
-	double sumaccuracy=0;
 	for (int i=1; i<=param->totalNumEpochs/param->interNumEpochs; i++) {
         //cout << "Training Epoch : " << i << endl;
 		Train(param->numTrainImagesPerEpoch, param->interNumEpochs,param->optimization_type);
 		if (!param->useHardwareInTraining && param->useHardwareInTestingFF) { WeightToConductance(); }
 		Validate();
 		mywriteoutfile << i*param->interNumEpochs << ", " << (double)correct/param->numMnistTestImages*100 << endl;
-		if (i>param->totalNumEpochs/param->interNumEpochs-30;)
-		{
-			sumaccuracy+=(double)correct/param->numMnistTestImages*100;
-		}
+	
 		
 		printf("Accuracy at %d epochs is : %.2f%\n", i*param->interNumEpochs, (double)correct/param->numMnistTestImages*100);
 		printf("\tRead latency=%.4e s\n", subArrayIH->readLatency + subArrayHO->readLatency);
@@ -148,7 +144,6 @@ int main() {
 		printf("\tRead energy=%.4e J\n", arrayIH->readEnergy + subArrayIH->readDynamicEnergy + arrayHO->readEnergy + subArrayHO->readDynamicEnergy);
 		printf("\tWrite energy=%.4e J\n", arrayIH->writeEnergy + subArrayIH->writeDynamicEnergy + arrayHO->writeEnergy + subArrayHO->writeDynamicEnergy);
 	}
-	printf("Average accuracy at the last 30 epochs is  %.2f%\n",(double)sumaccuracy/30);
 	printf("\n");
 	return 0;
 }
